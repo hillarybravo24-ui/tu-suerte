@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Tu Suerte</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align:center;
+background:#f5f5f5;
+}
+
+h1{
+color:#2c3e50;
+}
+
+button{
+padding:15px;
+background:#27ae60;
+color:white;
+border:none;
+font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎟 Plataforma Tu Suerte</h1>
+
+<h2>Rifa iPhone 17 Pro Max</h2>
+
+<p>Valor del número: $3.000</p>
+
+<button>Comprar número</button>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Tu Suerte</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+h1{
+color:#2c3e50;
+}
+
+.banner{
+background:black;
+color:white;
+padding:20px;
+}
+
+.precio{
+font-size:22px;
+color:green;
+margin:20px;
+}
+
+.barra{
+width:80%;
+height:30px;
+background:#ddd;
+margin:auto;
+border-radius:10px;
+overflow:hidden;
+}
+
+.progreso{
+height:30px;
+width:0%;
+background:#27ae60;
+color:white;
+line-height:30px;
+}
+
+.numeros{
+display:grid;
+grid-template-columns:repeat(10,1fr);
+gap:5px;
+width:80%;
+margin:auto;
+margin-top:20px;
+}
+
+.numero{
+background:white;
+border:1px solid #ccc;
+padding:10px;
+cursor:pointer;
+}
+
+.numero:hover{
+background:#27ae60;
+color:white;
+}
+
+.formulario{
+margin-top:40px;
+}
+
+input{
+padding:10px;
+margin:5px;
+width:250px;
+}
+
+button{
+padding:12px;
+background:#27ae60;
+color:white;
+border:none;
+font-size:16px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="banner">
+
+<h1>🎟 TU SUERTE</h1>
+
+<h2>Rifa iPhone 17 Pro Max 256GB</h2>
+
+<p>10.000 números disponibles</p>
+
+</div>
+
+<div class="precio">
+
+Valor del número: $3.000 COP
+
+</div>
+
+<h3>Progreso de ventas</h3>
+
+<div class="barra">
+<div class="progreso" id="progreso">0%</div>
+</div>
+
+<h3>Selecciona tu número</h3>
+
+<div class="numeros" id="numeros"></div>
+
+<div class="formulario">
+
+<h3>Datos del comprador</h3>
+
+<input type="text" placeholder="Nombre completo"><br>
+<input type="text" placeholder="Cédula"><br>
+<input type="text" placeholder="Teléfono"><br>
+<input type="email" placeholder="Correo"><br>
+<input type="text" placeholder="Ciudad"><br>
+
+<br>
+
+<button>Comprar número</button>
+
+</div>
+
+<script>
+
+let totalNumeros = 100
+let vendidos = 0
+
+const contenedor = document.getElementById("numeros")
+
+for(let i=1;i<=totalNumeros;i++){
+
+let numero = document.createElement("div")
+
+numero.classList.add("numero")
+
+numero.innerText = i
+
+numero.onclick=function(){
+
+numero.style.background="red"
+
+numero.style.color="white"
+
+vendidos++
+
+let porcentaje=(vendidos/totalNumeros)*100
+
+document.getElementById("progreso").style.width=porcentaje+"%"
+
+document.getElementById("progreso").innerText=Math.round(porcentaje)+"%"
+
+}
+
+contenedor.appendChild(numero)
+
+}
+
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Tu Suerte</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+background:#f4f4f4;
+}
+
+h1{
+color:#2c3e50;
+}
+
+.banner{
+background:black;
+color:white;
+padding:20px;
+}
+
+.precio{
+font-size:22px;
+color:green;
+margin:20px;
+}
+
+button{
+padding:15px;
+background:#27ae60;
+color:white;
+border:none;
+font-size:18px;
+cursor:pointer;
+}
+
+input{
+padding:10px;
+margin:5px;
+width:250px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="banner">
+
+<h1>🎟 TU SUERTE</h1>
+
+<h2>Rifa iPhone 17 Pro Max 256GB</h2>
+
+<p>10.000 números disponibles</p>
+
+</div>
+
+<div class="precio">
+
+Valor del número: $3.000 COP
+
+</div>
+
+<h3>Compra tu número</h3>
+
+<div>
+
+<input type="text" placeholder="Nombre completo" id="nombre"><br>
+
+<input type="text" placeholder="Cédula" id="cedula"><br>
+
+<input type="text" placeholder="Teléfono" id="telefono"><br>
+
+<input type="email" placeholder="Correo" id="correo"><br>
+
+<input type="text" placeholder="Ciudad" id="ciudad"><br>
+
+<br>
+
+<button onclick="comprar()">Comprar número</button>
+
+</div>
+
+<h2 id="resultado"></h2>
+
+<script>
+
+let numerosDisponibles=[]
+
+for(let i=1;i<=10000;i++){
+
+numerosDisponibles.push(i)
+
+}
+
+function comprar(){
+
+let nombre=document.getElementById("nombre").value
+
+let cedula=document.getElementById("cedula").value
+
+let telefono=document.getElementById("telefono").value
+
+let correo=document.getElementById("correo").value
+
+let ciudad=document.getElementById("ciudad").value
+
+if(!nombre || !cedula || !telefono || !correo){
+
+alert("Debes llenar todos los datos")
+
+return
+
+}
+
+let indice=Math.floor(Math.random()*numerosDisponibles.length)
+
+let numero=numerosDisponibles[indice]
+
+numerosDisponibles.splice(indice,1)
+
+document.getElementById("resultado").innerHTML=
+
+"🎉 Gracias por participar "+nombre+"<br>Tu número de rifa es: <b>"+numero+"</b>"
+
+}
+
+</script>
+
+</body>
+</html>
+
+
